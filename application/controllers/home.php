@@ -30,7 +30,7 @@ class Home extends CI_Controller {
         define("APP_ID",     '847749778641646');
         define("APP_SECRET", 'fffe73198e5898b662836a71644da654');
         $this->config(APP_ID, APP_SECRET);
-        $session = new FacebookSession('CAAMDBiBqEu4BAJRkUbVhrQIJYu4bSZBhj5XHfZCceH4kZA9OlZBeGawVeWQElvzGPMja3fV5rONTWUqiVejve3oVJn6dr63yOUpREmpcyRbNcIr0DCYBexeCpF7Qpm8pZCOf0BfALpZATZBhpyAU447oCVI0NnaYymWyBTwZB9dZCYYoR4QEwOUBh');
+        $session = new FacebookSession('CAAMDBiBqEu4BAKSzcoZB5X9Piph96XXobYrh0KkX64XMgLO0mcozVDuIjzK0v6aNX10qxOHnAHcyGktei1CmZBwBFuble5df6DgCYv6eDwxIkgjq9hNWzXQT5Cw2HtSjHWtXlPEHxhPKHFgMsJicD8qKRcsky5vMnfI3WkZCcVAvB9SIRDg');
 		$status = $this->getStatus($session);
         $this->load->helper('base_url');
 		$this->load->view('home', array(
