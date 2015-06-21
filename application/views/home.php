@@ -3,6 +3,7 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
     <head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="description" content="imjalpreet | Jalpreet Singh Nanda">
@@ -16,26 +17,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 		
 		<!-- Favicon -->
-		<link rel="shortcut icon" type="image/x-icon" href="static/img/favicon.png" />
+		<link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url(); ?>static/img/favicon.png" />
 		
 		<!-- CSS
 		================================================== -->
 		<!-- Fontawesome Icon font -->
-        <link rel="stylesheet" href="static/css/font-awesome.min.css">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>static/css/font-awesome.min.css">
 		<!-- bootstrap.min css -->
-        <link rel="stylesheet" href="static/css/bootstrap.min.css">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>static/css/bootstrap.min.css">
 		<!-- Animate.css -->
-        <link rel="stylesheet" href="static/css/animate.css">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>static/css/animate.css">
 		<!-- Owl Carousel -->
-        <link rel="stylesheet" href="static/css/owl.carousel.css">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>static/css/owl.carousel.css">
 		<!-- Grid Component css -->
-        <link rel="stylesheet" href="static/css/component.css">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>static/css/component.css">
 		<!-- Slit Slider css -->
-        <link rel="stylesheet" href="static/css/slit-slider.css">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>static/css/slit-slider.css">
 		<!-- Main Stylesheet -->
-        <link rel="stylesheet" href="static/css/main.css">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>static/css/main.css">
 		<!-- Media Queries -->
-        <link rel="stylesheet" href="static/css/media-queries.css">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>static/css/media-queries.css">
 
 		<!--
 		Google Font
@@ -51,17 +52,35 @@
 		<link href='http://fonts.googleapis.com/css?family=Ubuntu:400,300' rel='stylesheet' type='text/css'>
 		
 		<!-- Modernizer Script for old Browsers -->		
-        <script src="static/js/modernizr-2.6.2.min.js"></script>
+        <script src="<?php echo base_url(); ?>static/js/modernizr-2.6.2.min.js"></script>
+
+        <script>
+            window.fbAsyncInit = function() {
+                FB.init({
+                    appId      : '847749778641646',
+                    xfbml      : true,
+                    version    : 'v2.3'
+                });
+            };
+
+            (function(d, s, id){
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {return;}
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
 
     </head>
-	
-    <body id="body" onbeforeunload="getBirth();">
+
+    <body id="body">
 	    <!--
 	    Start Preloader
 	    ==================================== -->
 		<div id="loading-mask">
 			<div class="loading-img">
-				<img alt="imjalpreet Preloader" src="static/img/preloader.gif"  />
+				<img alt="imjalpreet Preloader" src="<?php echo base_url(); ?>static/img/preloader.gif"  />
 			</div>
 		</div>
         <!--
@@ -211,7 +230,7 @@
 					<!-- About item -->
 					<div class="col-md-4 text-center wow fadeInUp" data-wow-duration="500ms" data-wow-delay="250ms">
 						<div class="wrap-about">
-                            <img src="static/img/logos/comingSoon.png" width="300px" height="250px"/>
+                            <img src="<?php echo base_url(); ?>static/img/logos/comingSoon.png" width="300px" height="250px"/>
 						</div>
 					</div> 
 					<!-- End About item -->
@@ -410,7 +429,7 @@
 					<!-- single portfolio item -->
 					<li class="mix app">
 						<a href="javascript:void(0)" data-largesrc="static/img/portfolio/portx1.jpg" data-title="Coming Soon" data-description="">
-							<img src="static/img/portfolio/portx1.jpg" alt="imjalpreet">
+							<img src="<?php echo base_url(); ?>static/img/portfolio/portx1.jpg" alt="imjalpreet">
 							<div class="hover-mask">
 								<h3>Coming Soon</h3>
 								<span>
@@ -477,7 +496,7 @@
 						<article class="col-md-3 col-sm-6 col-xs-12 clearfix wow fadeInUp" data-wow-duration="500ms">
 							<div class="note">
 								<div class="media-wrapper">
-									<img src="static/img/blog/blog.jpg" alt="amazing caves coverimage" class="img-responsive">
+									<img src="<?php echo base_url(); ?>static/img/blog/blog.jpg" alt="amazing caves coverimage" class="img-responsive">
 								</div>
 								
 								<div class="excerpt">
@@ -494,13 +513,13 @@
 							<div class="note">
 								<div id="gallery-post" class="media-wrapper">
 									<div class="item">
-										<img src="static/img/blog/blog.jpg" alt="amazing caves coverimage" class="img-responsive">
+										<img src="<?php echo base_url(); ?>static/img/blog/blog.jpg" alt="amazing caves coverimage" class="img-responsive">
 									</div>
 									<div class="item">
-										<img src="static/img/blog/blog.jpg" alt="Flying bicycle" class="img-responsive">
+										<img src="<?php echo base_url(); ?>static/img/blog/blog.jpg" alt="Flying bicycle" class="img-responsive">
 									</div>
 									<div class="item">
-										<img src="static/img/blog/blog.jpg" alt="3D Beach Art | imjalpreet" class="img-responsive">
+										<img src="<?php echo base_url(); ?>static/img/blog/blog.jpg" alt="3D Beach Art | imjalpreet" class="img-responsive">
 									</div>
 								</div>
 								
@@ -654,7 +673,7 @@
 
 						<!-- footer -->
 						<div class="copyright text-center">
-							<a href="">
+							<a href="#body">
 								<div class="logo">imjalpreet</div>
 							</a>
 							
@@ -668,7 +687,7 @@
 		
 		<!-- Back to Top
 		============================== -->
-		<a href="javascript:;" id="scrollUp">
+		<a href="javascript:void(0)" id="scrollUp">
 			<i class="fa fa-angle-up fa-2x"></i>
 		</a>
 		
@@ -680,44 +699,44 @@
 		=====================================-->
 		
 		<!-- Main jQuery -->
-		<script src="static/js/jquery-1.11.0.min.js"></script>
+		<script src="<?php echo base_url(); ?>static/js/jquery-1.11.0.min.js"></script>
 		<!-- Bootstrap 3.1 -->
-		<script src="static/js/bootstrap.min.js"></script>
+		<script src="<?php echo base_url(); ?>static/js/bootstrap.min.js"></script>
 		<!-- Slitslider -->
-		<script src="static/js/jquery.slitslider.js"></script>
-		<script src="static/js/jquery.ba-cond.min.js"></script>
+		<script src="<?php echo base_url(); ?>static/js/jquery.slitslider.js"></script>
+		<script src="<?php echo base_url(); ?>static/js/jquery.ba-cond.min.js"></script>
 		<!-- Parallax -->
-		<script src="static/js/jquery.parallax-1.1.3.js"></script>
+		<script src="<?php echo base_url(); ?>static/js/jquery.parallax-1.1.3.js"></script>
 		<!-- Owl Carousel -->
-		<script src="static/js/owl.carousel.min.js"></script>
+		<script src="<?php echo base_url(); ?>static/js/owl.carousel.min.js"></script>
 		<!-- Portfolio Filtering -->
-		<script src="static/js/jquery.mixitup.min.js"></script>
+		<script src="<?php echo base_url(); ?>static/js/jquery.mixitup.min.js"></script>
 		<!-- Custom Scrollbar -->
-		<script src="static/js/jquery.nicescroll.min.js"></script>
+		<script src="<?php echo base_url(); ?>static/js/jquery.nicescroll.min.js"></script>
 		<!-- Jappear js -->
-		<script src="static/js/jquery.appear.js"></script>
+		<script src="<?php echo base_url(); ?>static/js/jquery.appear.js"></script>
 		<!-- Pie Chart -->
-		<script src="static/js/easyPieChart.js"></script>
+		<script src="<?php echo base_url(); ?>static/js/easyPieChart.js"></script>
 		<!-- jQuery Easing -->
-		<script src="static/js/jquery.easing-1.3.pack.js"></script>
+		<script src="<?php echo base_url(); ?>static/js/jquery.easing-1.3.pack.js"></script>
 		<!-- tweetie.min -->
-		<script src="static/js/tweetie.min.js"></script>
+		<script src="<?php echo base_url(); ?>static/js/tweetie.min.js"></script>
 		<!-- Google Map API -->
 		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 		<!-- Highlight menu item -->
-		<script src="static/js/jquery.nav.js"></script>
+		<script src="<?php echo base_url(); ?>static/js/jquery.nav.js"></script>
 		<!-- Sticky Nav -->
-		<script src="static/js/jquery.sticky.js"></script>
+		<script src="<?php echo base_url(); ?>static/js/jquery.sticky.js"></script>
 		<!-- Number Counter Script -->
-		<script src="static/js/jquery.countTo.js"></script>
+		<script src="<?php echo base_url(); ?>static/js/jquery.countTo.js"></script>
 		<!-- wow.min Script -->
-		<script src="static/js/wow.min.js"></script>
+		<script src="<?php echo base_url(); ?>static/js/wow.min.js"></script>
 		<!-- For video responsive -->
-		<script src="static/js/jquery.fitvids.js"></script>
+		<script src="<?php echo base_url(); ?>static/js/jquery.fitvids.js"></script>
 		<!-- Grid js -->
-		<script src="static/js/grid.js"></script>
+		<script src="<?php echo base_url(); ?>static/js/grid.js"></script>
 		<!-- Custom js -->
-		<script src="static/js/custom.js"></script>
+		<script src="<?php echo base_url(); ?>static/js/custom.js"></script>
 
     </body>
 </html>
