@@ -53,7 +53,21 @@
 		<!-- Modernizer Script for old Browsers -->		
         <script src="static/js/modernizr-2.6.2.min.js"></script>
 
-    </head>
+		<script>
+			!function(d,s,id) {
+				var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+				if(!d.getElementById(id)) {
+					js=d.createElement(s);
+					js.id=id;
+					js.src=p+"://platform.twitter.com/widgets.js";
+					fjs.parentNode.insertBefore(js,fjs);
+				}
+			}
+			(document,"script","twitter-wjs");
+		</script>
+
+
+	</head>
 	
     <body id="body" onbeforeunload="getBirth();">
 	    <!--
@@ -443,7 +457,11 @@
 						<!-- /twitter bird -->
 						
 						<!-- fetching tweet -->
-						<div class="tweet wow fadeIn" data-wow-duration="2000ms"></div>
+						<div class="wow fadeIn" data-wow-duration="2000ms">
+							<a class="twitter-timeline" href="https://twitter.com/imjalpreet" data-widget-id="612743367043121153" data-chrome="noheader noscrollbar transparent">
+                                Tweets by @imjalpreet
+                            </a>
+						</div>
 						<!-- /fetching tweet -->
 						
 						<!-- follow me button -->
