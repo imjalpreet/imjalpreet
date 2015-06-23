@@ -693,7 +693,6 @@
 							<a href="#body">
 								<div class="logo">imjalpreet</div>
 							</a>
-							
 						</div>
 						<!-- /footer -->
 						
