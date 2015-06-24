@@ -261,7 +261,7 @@ jQuery(function ($) { "use strict";
 			/* using the jquery's post(ajax) function and a lifesaver
 			function serialize() which gets all the data from the form
 			we submit it to send_email.php */
-			$.post("sendmail.php", $("#contact-form").serialize(), function (result) {
+			$.post("application/views/sendmail.php", $("#contact-form").serialize(), function (result) {
 				//and after the ajax request ends we check the text returned
 				if (result == 'sent') {
 					//if the mail is sent remove the submit paragraph
@@ -272,7 +272,9 @@ jQuery(function ($) { "use strict";
 					//show the mail failed div
 					$('#mail-fail').fadeIn(500);
 					//re enable the submit button by removing attribute disabled and change the text back to Send The Message
-					$('#contact-submit').removeAttr('disabled').attr('value', 'Send The Message');
+					//$('#contact-submit').removeAttr('disabled').attr('value', result);
+					//$('#contact-submit').removeAttr('disabled').attr('value', 'Send The Message');
+					$('#contact-submit').removeAttr('disabled').attr('value', result);
 				}
 			});
 		}
@@ -378,8 +380,8 @@ jQuery(function ($) { "use strict";
 		var marker = new google.maps.Marker({
 			position: myLatLng,
 			map: map,
-			icon: 'img/location-icon.png',
-			title: '',
+			icon: 'static/img/location-icon.png',
+			title: 'Current Location',
 		});
 
 
