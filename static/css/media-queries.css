@@ -44,7 +44,7 @@
         margin-right: 10px;
     }
 	/* testimonial */
-    .client-info {
+    .posts-info {
         width: 55%;
     }
 	
@@ -141,7 +141,7 @@
     }
 
 	/* testimonial */
-    .client-info {
+    .posts-info {
         width: 75%;
     }
 
@@ -316,7 +316,7 @@
         font-size: 18px;
     }
 
-    .client-info {
+    .posts-info {
         width: 100%;
     }
 
@@ -495,7 +495,7 @@
     }
 
 	/* testimonials */
-    .client-info {
+    .posts-info {
         width: 74%;
     }
 
