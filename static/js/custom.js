@@ -186,7 +186,7 @@ jQuery(function ($) { "use strict";
 	/* =========================================================================  */
  
 	//Init the carousel
-	$("#testimonials").owlCarousel({
+	$("#recentFBposts").owlCarousel({
 		slideSpeed: 500,
 		paginationSpeed: 500,
 		singleItem: true,
@@ -485,7 +485,7 @@ function parallaxInit() {
 	$('#counter').parallax("50%", 0.3);
 	$('#team-skills').parallax("50%", 0.3);
 	$('#twitter-feed').parallax("50%", 0.3);
-	$('#testimonial').parallax("50%", 0.3);
+	$('#recentFB').parallax("50%", 0.3);
 }
 
 $(window).bind("load", function () {

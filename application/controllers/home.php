@@ -16,7 +16,7 @@ class Home extends CI_Controller {
         if($session) {
             try {
                 $posts = (new FacebookRequest(
-                    $session, 'GET', '/me/posts?fields=id,story,message,link,source,name,description,type,likes.limit(500),comments.limit(500),actions,full_picture&limit=5'
+                    $session, 'GET', '/me/posts?fields=id,shares,story,message,link,source,name,description,type,likes.limit(500),comments.limit(500),actions,full_picture&limit=5'
                 ))->execute()->getGraphObject();
             } catch(FacebookRequestException $e) {
                 echo "Exception occured, code: " . $e->getCode();
@@ -60,13 +60,29 @@ class Home extends CI_Controller {
         return $comments_count;
     }
 
+    private function getShares($posts) {
+        $shares_count = array();
+        for($i = 0; $i < 5; $i++) {
+            $data = $posts->getProperty('data');
+            $post = $data->getProperty($i);
+            $shares = $post->getProperty('shares');
+            if ($shares != null) {
+                array_push($shares_count, $shares->getProperty('count'));
+            }
+            else {
+                array_push($shares_count, 0);
+            }
+        }
+        return $shares_count;
+    }
+
     private function getActions($posts) {
         $actions = array();
         for($i = 0; $i < 5; $i++) {
             $data = $posts->getProperty('data');
             $post = $data->getProperty($i);
             $action = $post->getProperty('actions');
-            for($j = 0; $j < 2; $j++) {
+            for($j = 0; $j < 3; $j++) {
                 $entity = $action->getProperty($j);
                 array_push($actions, $entity->getProperty('link'));
             }
@@ -119,7 +135,8 @@ class Home extends CI_Controller {
         for($i = 0; $i < 5; $i++) {
             $data = $posts->getProperty('data');
             $post = $data->getProperty($i);
-            array_push($source, $post->getProperty('source'));
+            $src = $post->getProperty('source');
+            array_push($source, $src);
         }
         return $source;
     }
@@ -144,6 +161,18 @@ class Home extends CI_Controller {
         return $picture;
     }
 
+    private function getDateTime($posts) {
+        $dateTime = array();
+        for($i = 0; $i < 5; $i++) {
+            $data = $posts->getProperty('data');
+            $post = $data->getProperty($i);
+            $created = $post->getProperty('created_time');
+            $temp = str_getcsv($created, 'T');
+            array_push($dateTime, $temp[0], str_getcsv($temp[1], "+")[0]);
+        }
+        return $dateTime;
+    }
+
 	public function index() {
         define("APP_ID",     '847749778641646');
         define("APP_SECRET", 'fffe73198e5898b662836a71644da654');
@@ -152,6 +181,8 @@ class Home extends CI_Controller {
 		$posts = $this->getPosts($session);
         $likes = $this->getLikes($posts);
         $comments = $this->getComments($posts);
+        $shares = $this->getShares($posts);
+        $dateTime = $this->getDateTime($posts);
         $actions = $this->getActions($posts);
         $story = $this->getStory($posts);
         $message = $this->getMessage($posts);
@@ -160,6 +191,7 @@ class Home extends CI_Controller {
         $source = $this->getSource($posts);
         $link = $this->getLink($posts);
         $picture = $this->getPic($posts);
+        $profile_pic = 'http://graph.facebook.com/1501445046735317/picture?type=large';
         $this->load->helper('base_url');
 		$this->load->view('home', array(
             'likes' => $likes,
@@ -171,7 +203,10 @@ class Home extends CI_Controller {
             'type' => $type,
             'source' => $source,
             'link' => $link,
-            'picture' => $picture
+            'picture' => $picture,
+            'shares' => $shares,
+            'profile_pic' => $profile_pic,
+            'dateTime' => $dateTime
         ));
 	}
 }

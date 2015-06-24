@@ -519,7 +519,7 @@
 								<div class="excerpt">
 									<h3>Coming Soon</h3>
 									<p></p>
-									<a class="btn btn-transparent" href="#">Under Construction</a>
+									<a class="btn btn-transparent" href="#blog">Under Construction</a>
 								</div>
 							</div>						
 						</article>
@@ -543,7 +543,7 @@
 								<div class="excerpt">
                                     <h3>Coming Soon</h3>
                                     <p></p>
-                                    <a class="btn btn-transparent" href="#">Under Construction</a>
+                                    <a class="btn btn-transparent" href="#blog">Under Construction</a>
 								</div>
 							</div>						
 						</article>
@@ -552,7 +552,7 @@
 					</div>
 
 					<div class="all-post text-center">
-						<a class="btn btn-transparent" href="#">View All Post</a>
+						<a class="btn btn-transparent" href="#blog">View All Post</a>
 					</div>
 
 				</div> <!-- end row -->
@@ -562,17 +562,105 @@
 		<!-- Start Facebook
 		=========================================== -->
 
-		<section id="testimonial" class="parallax-section">
+		<section id="recentFB" class="parallax-section">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12">
 
 						<!-- section title -->
-						<div class="sub-title text-center wow fadeInDown" data-wow-duration="500ms">
-							<h2>Recent Posts on <span class="color"> Facebook</span></h2>
+						<div class="title text-center wow fadeInDown" data-wow-duration="500ms">
+							<h2>Recent Posts on <span class="color">Facebook</span></h2>
+                            <div class="border"></div>
+                        </div>
+                        <!--div class="sub-title text-center wow fadeInDown" data-wow-duration="500ms">
                             <h3>Under Construction</h3>
-						</div>
+                        </div-->
+                        <!-- Facebook wrapper -->
+                        <div id="recentFBposts" class="wow fadeInUp" data-wow-duration="500ms" data-wow-delay="100ms">
+                            <?php
+                                for($i = 0; $i < 5; $i++) {
+                                    ?>
+                                    <!-- Post single -->
+                                    <div class="item text-center">
+                                        <?php
+                                        if (strcmp($type[$i], "video") == 0) {
+                                            echo "<div class='col-md-3'></div>";
+                                            echo "<div class='col-md-6 feature-media media-wrapper wow fadeInUp' data-wow-duration='500ms'>
+                                            <iframe src='" . str_getcsv($source[$i], '?')[0] . "' allowfullscreen></iframe>
+                                              </div>";
+                                            echo "<div class='col-md-3'></div>";
+                                        } elseif (strcmp($type[$i], "photo") == 0) {
+                                            echo "<div class='posts-thumb'>
+                                                <img src='$picture[$i]' class='img-responsive' alt='imjalpreet'>
+                                              </div>";
+                                        } elseif (strcmp($type[$i], "status") == 0) {
+                                            echo "<div class='posts-thumb'>
+                                                <img src='$profile_pic' class='img-responsive' alt='imjalpreet'>
+                                              </div>";
+                                        } elseif (strcmp($type[$i], "link") == 0) {
+											if($picture[$i] != null){
+                                                echo "<div class='posts-thumb'>
+                                                <img src='$picture[$i]' class='img-responsive' alt='imjalpreet'>
+                                              </div>";
+                                            }
+                                            else {
+                                                echo "<div class='posts-thumb'>
+                                                <img src='$profile_pic' class='img-responsive' alt='imjalpreet'>
+                                              </div>";
+                                            }
+										}
+                                        ?>
 
+                                        <div class="posts-info">
+                                            <div class="posts-meta">
+                                                <h3><?php
+                                                    if(strcmp($story[$i], "")) {
+                                                        echo $story[$i];
+                                                    }
+                                                    elseif(strcmp($type[$i], "photo") == 0){
+                                                        echo "Jalpreet Singh Nanda uploaded a new photo.";
+                                                    }
+                                                    else{
+                                                        echo "Jalpreet Singh Nanda updated his status.";
+                                                    }
+                                                    ?></h3>
+                                                <span><?php
+                                                    $time = strtotime($dateTime[2*$i]);
+                                                    $month = date('F', $time);
+                                                    $year = date('Y', $time);
+                                                    $day = date('d', $time);
+                                                    $when = $dateTime[2*$i + 1]." on ".$day." ".$month.", ".$year." (UTC)";
+                                                    echo $when;
+                                                    ?></span>
+                                            </div>
+                                            <div class="posts-comment">
+                                                <p><?php
+                                                    echo $message[$i];
+                                                    if(strcmp($message[$i], "")){
+                                                        echo "<div class='border'></div>";
+                                                    }
+                                                    ?></p>
+                                                <br />
+                                                <p><?php echo $description[$i]; ?></p>
+                                                <ul class="posts-data">
+                                                    <li><a href="<?php echo $actions[3*$i + 1]; ?>"><i
+                                                                class="fa fa-thumbs-up fa-lg"></i><?php echo $likes[$i] ?>
+                                                        </a></li>
+                                                    <li><a href="<?php echo $actions[3*$i]; ?>"><i
+                                                                class="fa fa-comment fa-lg"></i><?php echo $comments[$i] ?>
+                                                        </a></li>
+                                                    <li><a href="<?php echo $actions[3*$i + 2]; ?>"><i
+                                                                class="fa fa-share fa-lg"></i><?php echo $shares[$i] ?>
+                                                        </a></li>
+                                                </ul>
+                                            </div>
+                                            <a href="<?php echo $actions[2*$i]; ?>" title="See More" target="_blank" class="btn btn-transparent wow fadeInUp" data-wow-duration="500ms">See More</a>
+                                        </div>
+                                    </div>
+                                    <?php
+                                }
+                            ?>
+                        </div>
 					</div> 		<!-- end col lg 12 -->
 				</div>	    <!-- End row -->
 			</div>       <!-- End container -->

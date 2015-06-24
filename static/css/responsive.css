@@ -156,11 +156,11 @@
     #our-clients .item {
         text-align: center;
     }
-    #testimonials .owl-prev {
+    #recentFBposts .owl-prev {
         right: 8%;
         top: -30%;
     }
-    #testimonials .owl-next {
+    #recentFBposts .owl-next {
         right: 2%;
         top: -30%;
     }
@@ -343,10 +343,10 @@
         margin-right: 0;
         width: 100%;
     }
-    #testimonials {
+    #recentFBposts {
         padding-bottom: 0;
     }
-    #testimonials .owl-next, #testimonials .owl-prev {
+    #recentFBposts .owl-next, #recentFBposts .owl-prev {
         display: none;
     }
     .timeline {
@@ -517,7 +517,7 @@
 		margin: 0 auto 40px;
 		width: 70%;
 	}
-    #testimonials .owl-next, #testimonials .owl-prev {
+    #recentFBposts .owl-next, #recentFBposts .owl-prev {
         top: -10%;
     }
     .timeline {
